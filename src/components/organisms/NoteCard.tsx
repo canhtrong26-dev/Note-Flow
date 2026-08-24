@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import type Note from '../../features/notes/Note'
 import NoteMeta from '../molecules/NoteMeta'
 
@@ -18,7 +19,8 @@ function NoteCard({ note, onSelect, onPin, onDelete }: NoteCardProps) {
         createdAt={note.createdAt}
         pinned={note.pinned}
       />
-      <button onClick={onSelect}>Xem</button>
+      <Link to={`/notes/${note.id}`}>Xem chi tiết</Link>
+      <button onClick={onSelect}>Sửa</button>
       <button onClick={onPin}>Pin</button>
       <button onClick={onDelete}>Delete</button>
     </div>
