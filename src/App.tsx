@@ -1,7 +1,11 @@
+import { useState } from 'react'
+import { Routes, Route, Navigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import AppLayout from './app/AppLayout'
-import NoteList from './components/organisms/NoteList'
-import NoteForm from './components/organisms/NoteForm'
+import NoteListPage from './pages/NoteListPage'
+import PinnedNotesPage from './pages/PinnedNotesPage'
+import ArchivedNotesPage from './pages/ArchivedNotesPage'
+import NoteDetailPage from './pages/NoteDetailPage'
 import type { RootState } from './store/store'
 import { noteAdded, noteUpdated, noteDeleted } from './features/notes/notesSlice'
 import type Note from './features/notes/Note'
@@ -11,7 +15,11 @@ function App() {
   const dispatch = useDispatch()
   const notes = useSelector((state: RootState) => state.notes.items)
   const searchText = useSelector((state: RootState) => state.filters.searchText)
-  const tagFilter = useSelector((state: RootState) => state.filters.tagFilter)
+  const [selectedNote, setSelectedNote] = useState<Note | null>(null)
+
+  const visibleNotes = notes.filter((note) =>
+    note.title.toLowerCase().includes(searchText.toLowerCase())
+  )
 
   function handleCreateNote(data: NoteInput) {
     const newNote: Note = {
@@ -26,8 +34,10 @@ function App() {
     dispatch(noteAdded(newNote))
   }
 
-  function handleUpdateNote(note: Note) {
-    dispatch(noteUpdated(note))
+  function handleUpdateNote(data: NoteInput) {
+    if (!selectedNote) return
+    dispatch(noteUpdated({ ...selectedNote, ...data }))
+    setSelectedNote(null)
   }
 
   function handleDeleteNote(id: string) {
@@ -36,12 +46,43 @@ function App() {
 
   return (
     <AppLayout>
-      <NoteForm onSubmit={handleCreateNote} />
-      <NoteList
-        notes={notes}
-        onSelectNote={() => {}}
-        onDeleteNote={handleDeleteNote}
-      />
+      <Routes>
+        <Route path="/" element={<Navigate to="/notes" replace />} />
+        <Route
+          path="/notes"
+          element={
+            <NoteListPage
+              notes={visibleNotes}
+              selectedNote={selectedNote}
+              onCreateNote={handleCreateNote}
+              onUpdateNote={handleUpdateNote}
+              onSelectNote={setSelectedNote}
+              onDeleteNote={handleDeleteNote}
+            />
+          }
+        />
+        <Route
+          path="/notes/pinned"
+          element={
+            <PinnedNotesPage
+              notes={visibleNotes}
+              onSelectNote={setSelectedNote}
+              onDeleteNote={handleDeleteNote}
+            />
+          }
+        />
+        <Route
+          path="/notes/archived"
+          element={
+            <ArchivedNotesPage
+              notes={visibleNotes}
+              onSelectNote={setSelectedNote}
+              onDeleteNote={handleDeleteNote}
+            />
+          }
+        />
+        <Route path="/notes/:id" element={<NoteDetailPage notes={notes} />} />
+      </Routes>
     </AppLayout>
   )
 }

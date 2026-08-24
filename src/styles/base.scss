@@ -12,3 +12,19 @@ body {
   color: $text-dark;
   font-family: sans-serif;
 }
+[data-theme='light'] {
+  --bg: #{$bg-light};
+  --text: #{$text-dark};
+}
+
+[data-theme='dark'] {
+  --bg: #0f1117;
+  --text: #f1f5f9;
+}
+
+.app-layout {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.3s, color 0.3s;
+}

@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import type Note from './Note'
+import mockNotes from './mockNotes'
 
 type NotesState = {
   items: Note[]
@@ -9,7 +10,7 @@ type NotesState = {
 }
 
 const initialState: NotesState = {
-  items: [],
+  items: mockNotes,
   status: 'idle',
   error: null
 }

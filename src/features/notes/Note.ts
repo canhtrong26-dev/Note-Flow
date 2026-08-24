@@ -9,4 +9,5 @@ type Note = {
   archived: boolean
 }
 
-export default Note
+export type { Note }
+export type { Note as default }

@@ -6,4 +6,5 @@ type NoteInput = {
   archived: boolean
 }
 
-export default NoteInput
+export type { NoteInput }
+export type { NoteInput as default }

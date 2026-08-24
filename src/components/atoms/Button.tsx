@@ -6,7 +6,7 @@ type ButtonProps = {
 
 function Button({ label, onClick, variant = 'primary' }: ButtonProps) {
   return (
-    <button onClick={onClick}>
+    <button className={`btn btn--${variant}`} onClick={onClick}>
       {label}
     </button>
   )

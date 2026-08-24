@@ -8,3 +8,5 @@ export const store = configureStore({
     filters: filtersReducer
   }
 })
+
+export type RootState = ReturnType<typeof store.getState>
