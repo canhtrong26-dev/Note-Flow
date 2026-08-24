@@ -12,9 +12,9 @@ function NotesLayout() {
       }}>
         <h3>NoteFlow</h3>
         <nav style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginTop: '20px' }}>
-          <Link to="/notes" style={{ color: '#fff', textDecoration: 'none' }}>📋 All</Link>
-          <Link to="/notes/pinned" style={{ color: '#fff', textDecoration: 'none' }}>📌 Pinned</Link>
-          <Link to="/notes/archived" style={{ color: '#fff', textDecoration: 'none' }}>📦 Archived</Link>
+          <Link to="/notes" style={{ color: '#fff', textDecoration: 'none' }}>All</Link>
+          <Link to="/notes/pinned" style={{ color: '#fff', textDecoration: 'none' }}>Pinned</Link>
+          <Link to="/notes/archived" style={{ color: '#fff', textDecoration: 'none' }}>Archived</Link>
         </nav>
       </aside>
 

@@ -3,10 +3,9 @@ import Tag from '../atoms/Tag'
 type NoteMetaProps = {
   tags: string[]
   createdAt: string
-  pinned: boolean
 }
 
-function NoteMeta({ tags, createdAt, pinned }: NoteMetaProps) {
+function NoteMeta({ tags, createdAt }: NoteMetaProps) {
   return (
     <div>
       <div className="note-card__tags">
@@ -15,7 +14,6 @@ function NoteMeta({ tags, createdAt, pinned }: NoteMetaProps) {
         ))}
       </div>
       <span className="note-card__date">{createdAt}</span>
-      {pinned && <span className="note-card__date"> · 📌</span>}
     </div>
   )
 }

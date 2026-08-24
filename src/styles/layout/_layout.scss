@@ -98,10 +98,6 @@
     }
   }
 
-  &__search-icon {
-    opacity: 0.6;
-  }
-
   &__actions {
     margin-left: auto;
     display: flex;
@@ -111,9 +107,9 @@
 
 .icon-button {
   @include flex-center;
-  width: 36px;
   height: 36px;
-  font-size: 1rem;
+  padding: 0 0.85rem;
+  font-size: 0.85rem;
   border: 1px solid var(--border);
   border-radius: 8px;
   background: transparent;

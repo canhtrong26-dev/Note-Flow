@@ -15,11 +15,7 @@ function NoteCard({ note, onSelect, onPin, onDelete }: NoteCardProps) {
       {note.pinned && <span className="note-card__badge">Pinned</span>}
       <h3 className="note-card__title">{note.title}</h3>
       <p className="note-card__content">{note.content}</p>
-      <NoteMeta
-        tags={note.tags}
-        createdAt={note.createdAt}
-        pinned={note.pinned}
-      />
+      <NoteMeta tags={note.tags} createdAt={note.createdAt} />
       <div className="note-card__actions">
         <Link className="note-card__action" to={`/notes/${note.id}`}>
           Xem chi tiết

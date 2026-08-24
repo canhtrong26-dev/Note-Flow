@@ -20,13 +20,13 @@ function AppLayout({ children }: AppLayoutProps) {
         <div className="sidebar__logo">NoteFlow</div>
         <nav className="sidebar__nav">
           <NavLink to="/notes" end className="sidebar__link">
-            <span>📋</span> All Notes
+            All Notes
           </NavLink>
           <NavLink to="/notes/pinned" className="sidebar__link">
-            <span>📌</span> Pinned
+            Pinned
           </NavLink>
           <NavLink to="/notes/archived" className="sidebar__link">
-            <span>📦</span> Archived
+            Archived
           </NavLink>
         </nav>
       </aside>
@@ -38,11 +38,10 @@ function AppLayout({ children }: AppLayoutProps) {
             title="Toggle sidebar"
             onClick={() => dispatch({ type: 'TOGGLE_SIDEBAR' })}
           >
-            ☰
+            Menu
           </button>
 
           <div className="header__search">
-            <span className="header__search-icon">🔍</span>
             <input
               type="text"
               placeholder="Search notes..."
@@ -59,14 +58,14 @@ function AppLayout({ children }: AppLayoutProps) {
                 reduxDispatch(viewModeChanged(viewMode === 'grid' ? 'list' : 'grid'))
               }
             >
-              {viewMode === 'grid' ? '▦' : '▤'}
+              {viewMode === 'grid' ? 'List' : 'Grid'}
             </button>
             <button
               className="icon-button"
               title="Toggle theme"
               onClick={() => dispatch({ type: 'TOGGLE_THEME' })}
             >
-              {state.theme === 'light' ? '🌙' : '☀️'}
+              {state.theme === 'light' ? 'Dark' : 'Light'}
             </button>
           </div>
         </header>

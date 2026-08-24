@@ -14,14 +14,14 @@ function NoteDetailPage({ notes }: NoteDetailPageProps) {
     return (
       <div>
         <h2>Note không tồn tại</h2>
-        <Link to="/notes">← Quay lại</Link>
+        <Link to="/notes">Quay lại</Link>
       </div>
     )
   }
 
   return (
     <div>
-      <Link to="/notes">← Back to notes</Link>
+      <Link to="/notes">Back to notes</Link>
       <h2>{note.title}</h2>
       <p>{note.content}</p>
       <div>
@@ -30,8 +30,8 @@ function NoteDetailPage({ notes }: NoteDetailPageProps) {
         ))}
       </div>
       <p>Ngày tạo: {note.createdAt}</p>
-      <p>{note.pinned ? '📌 Đã ghim' : ''}</p>
-      <p>{note.archived ? '📦 Đã lưu trữ' : ''}</p>
+      <p>{note.pinned ? 'Đã ghim' : ''}</p>
+      <p>{note.archived ? 'Đã lưu trữ' : ''}</p>
     </div>
   )
 }
