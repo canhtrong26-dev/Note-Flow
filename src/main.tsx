@@ -4,7 +4,7 @@ import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 import { store } from './store/store'
 import UIProvider from './context/ui/UIProvider'
-import './styles/base.scss'
+import './styles/main.scss'
 import App from './App.tsx'
 
 createRoot(document.getElementById('root')!).render(

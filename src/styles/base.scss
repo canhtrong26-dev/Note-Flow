@@ -8,23 +8,41 @@
 }
 
 body {
-  background-color: $bg-light;
-  color: $text-dark;
-  font-family: sans-serif;
-}
-[data-theme='light'] {
-  --bg: #{$bg-light};
-  --text: #{$text-dark};
-}
-
-[data-theme='dark'] {
-  --bg: #0f1117;
-  --text: #f1f5f9;
-}
-
-.app-layout {
-  min-height: 100vh;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
   background: var(--bg);
   color: var(--text);
   transition: background 0.3s, color 0.3s;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+h1 { font-size: 1.5rem; }
+h2 { font-size: 1.25rem; }
+h3 { font-size: 1rem; }
+
+a {
+  color: $primary;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+input,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
 }

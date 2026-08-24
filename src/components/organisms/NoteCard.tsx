@@ -11,18 +11,23 @@ type NoteCardProps = {
 
 function NoteCard({ note, onSelect, onPin, onDelete }: NoteCardProps) {
   return (
-    <div>
-      <h3>{note.title}</h3>
-      <p>{note.content}</p>
+    <div className={note.pinned ? 'note-card note-card--pinned' : 'note-card'}>
+      {note.pinned && <span className="note-card__badge">Pinned</span>}
+      <h3 className="note-card__title">{note.title}</h3>
+      <p className="note-card__content">{note.content}</p>
       <NoteMeta
         tags={note.tags}
         createdAt={note.createdAt}
         pinned={note.pinned}
       />
-      <Link to={`/notes/${note.id}`}>Xem chi tiết</Link>
-      <button onClick={onSelect}>Sửa</button>
-      <button onClick={onPin}>Pin</button>
-      <button onClick={onDelete}>Delete</button>
+      <div className="note-card__actions">
+        <Link className="note-card__action" to={`/notes/${note.id}`}>
+          Xem chi tiết
+        </Link>
+        <button className="note-card__action" onClick={onSelect}>Sửa</button>
+        <button className="note-card__action" onClick={onPin}>Pin</button>
+        <button className="note-card__action" onClick={onDelete}>Delete</button>
+      </div>
     </div>
   )
 }

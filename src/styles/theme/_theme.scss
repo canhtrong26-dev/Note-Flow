@@ -1,0 +1,21 @@
+@use '../variables' as *;
+
+[data-theme='light'] {
+  --bg: #{$bg-light};
+  --text: #{$text-light};
+  --card-bg: #ffffff;
+  --sidebar-bg: #f1f5f9;
+  --border: #e2e8f0;
+  --muted: #64748b;
+  --primary: #{$primary};
+}
+
+[data-theme='dark'] {
+  --bg: #{$bg-dark};
+  --text: #{$text-dark};
+  --card-bg: #1e2433;
+  --sidebar-bg: #161b27;
+  --border: #2a3244;
+  --muted: #94a3b8;
+  --primary: #{$primary};
+}

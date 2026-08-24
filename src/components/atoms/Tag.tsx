@@ -5,7 +5,7 @@ type TagProps = {
 
 function Tag({ text, color }: TagProps) {
   return (
-    <span style={{ color: color }}>
+    <span className="note-card__tag" style={{ color: color }}>
       {text}
     </span>
   )

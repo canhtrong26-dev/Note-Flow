@@ -1,0 +1,145 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.3s, color 0.3s;
+
+  &__main {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.sidebar {
+  width: 200px;
+  flex-shrink: 0;
+  padding: 1.25rem 1rem;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border);
+  transition: background 0.3s, width 0.3s, padding 0.3s;
+  overflow: hidden;
+
+  &--closed {
+    width: 0;
+    padding-left: 0;
+    padding-right: 0;
+    border-right: none;
+  }
+
+  &__logo {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: $primary;
+    margin-bottom: 1.5rem;
+    white-space: nowrap;
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.55rem 0.7rem;
+    border-radius: 8px;
+    color: var(--text);
+    white-space: nowrap;
+    transition: background 0.2s;
+
+    &:hover {
+      background: rgba(99, 102, 241, 0.1);
+      text-decoration: none;
+    }
+
+    &.active {
+      background: $primary;
+      color: #fff;
+    }
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1.25rem;
+  background: var(--card-bg);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.3s;
+
+  &__search {
+    flex: 1;
+    max-width: 480px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.45rem 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--bg);
+    transition: background 0.3s, border-color 0.3s;
+
+    input {
+      flex: 1;
+      border: none;
+      outline: none;
+      background: transparent;
+      color: var(--text);
+    }
+  }
+
+  &__search-icon {
+    opacity: 0.6;
+  }
+
+  &__actions {
+    margin-left: auto;
+    display: flex;
+    gap: 0.4rem;
+  }
+}
+
+.icon-button {
+  @include flex-center;
+  width: 36px;
+  height: 36px;
+  font-size: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text);
+  transition: background 0.2s;
+
+  &:hover {
+    background: rgba(99, 102, 241, 0.12);
+  }
+}
+
+.content {
+  flex: 1;
+  padding: 1.5rem;
+}
+
+.note-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+
+  @media (max-width: $breakpoint-lg) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: 1fr;
+  }
+}

@@ -13,7 +13,7 @@ function NoteList({ notes, onSelectNote, onDeleteNote }: NoteListProps) {
   }
 
   return (
-    <div>
+    <div className="note-grid">
       {notes.map((note) => (
         <NoteCard
           key={note.id}
